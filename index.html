@@ -904,17 +904,6 @@ body {
 .module-item:hover::before { left: 100%; }
 
 /* ======================== PROGRESS BAR ======================== */
-.progress-bar {
-  position: fixed;
-  top: 0; left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light), var(--gold));
-  background-size: 200% 100%;
-  z-index: 200;
-  transition: width 0.08s linear;
-  box-shadow: 0 0 8px rgba(201,168,76,0.6);
-  animation: shimmer 3s linear infinite;
-}
 
 /* ======================== BACK TO TOP ======================== */
 .back-top {
@@ -1241,7 +1230,7 @@ body.modal-open {
   .crisis-card, .module-item, .dynamic-item, .promise-card { break-inside: avoid; }
   .section { padding: 40px 20px; }
   .cta-section { background: #0a0e1a !important; }
-  .nav-dots, .progress-bar, .back-top { display: none !important; }
+  .nav-dots, .back-top { display: none !important; }
   .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
   @page { margin: 1.5cm; size: A4; }
 }
@@ -1609,7 +1598,6 @@ body.modal-open {
 <body>
 
 <!-- PROGRESS BAR -->
-<div class="progress-bar" id="progressBar"></div>
 
 <!-- NAV DOTS -->
 <nav class="nav-dots" id="navDots">
@@ -2314,7 +2302,6 @@ body.modal-open {
 
 <script>
 (function() {
-  var pb = document.getElementById('progressBar');
   var btt = document.getElementById('backTop');
   var sectionIds = ['hero','s-sternstunde','s-scheideweg','s-versprechen','s-portraits','s-kreis','s-themen','s-cta'];
   var dots = Array.prototype.slice.call(document.querySelectorAll('.nav-dot'));
@@ -2325,9 +2312,7 @@ body.modal-open {
   }
 
   function updateProgress(scrollY) {
-    if (!pb) return;
     var h = document.documentElement.scrollHeight - window.innerHeight;
-    pb.style.width = (h > 0 ? Math.min(100, (scrollY / h) * 100) : 0) + '%';
   }
 
   function updateBackTop(scrollY) {
@@ -2684,7 +2669,7 @@ function preparePDF() {
   document.body.appendChild(wrapper);
   
   // Hide nav elements
-  ['progressBar','navDots','backTop'].forEach(function(id){
+  ['navDots','backTop'].forEach(function(id){
     var e=document.getElementById(id); if(e) e.remove();
   });
   
