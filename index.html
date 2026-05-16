@@ -1258,7 +1258,7 @@ body.modal-open {
   .fact { border-bottom: 1px solid rgba(201,168,76,0.1); }
   .cta-box { padding: 40px 24px; }
   .promise-grid { grid-template-columns: 1fr; }
-  .book-section { flex-direction: column; text-align: center; padding: 30px 20px; }
+  .book-section { flex-direction: column; text-align: center; padding: 30px 18px; overflow: hidden; }
   .book-section-enhanced {
     flex-direction: column;
     align-items: center;
@@ -1269,6 +1269,15 @@ body.modal-open {
   .book-cover-print,
   .book-cover-print img {
     width: 120px;
+  }
+  .book-cover-print:hover img,
+  .book-cover-print:focus-within img {
+    animation: none;
+    transform: none;
+  }
+  .book-cover-print:hover::before,
+  .book-cover-print:focus-within::before {
+    animation: none;
   }
   .book-content .book-desc {
     max-width: none;
@@ -1334,6 +1343,7 @@ body.modal-open {
   gap: 28px;
   margin: 22px 0;
   padding: 28px 30px;
+  overflow: hidden;
   background: linear-gradient(145deg, rgba(201,168,76,0.12), rgba(26,35,64,0.88) 42%, rgba(10,14,26,0.96) 100%);
   border: 1px solid rgba(201,168,76,0.30);
   border-radius: 24px;
@@ -2289,7 +2299,7 @@ body.modal-open {
     <div class="cta-alt">oder <a href="tel:+499115188317" aria-label="Rufe 0911 51 88 317 an">0911 &ndash; 51 88 317</a></div>
     <div class="cta-email"><a href="mailto:info@onlife.de" aria-label="Schreibe eine E-Mail an info@onlife.de">info@onlife.de</a></div>
     <div class="cta-website"><a href="https://www.onlife.de" target="_blank" rel="noopener noreferrer" aria-label="Öffne die Website onlife.de">www.onlife.de</a></div>
-    <div style="margin-top:22px;">
+    <div style="margin-top:22px; text-align:center;">
       <a href="https://onlife.de/appointment" style="display:inline-block; font-family:'Cinzel',serif; font-size:1rem; letter-spacing:1.5px; color:var(--navy); background:linear-gradient(135deg,var(--gold),var(--gold-light)); padding:14px 32px; border-radius:4px; text-decoration:none; text-transform:uppercase; box-shadow:0 0 30px rgba(201,168,76,0.5);">
         Klicke hier f&uuml;r ein Kennenlerngespr&auml;ch
       </a>
